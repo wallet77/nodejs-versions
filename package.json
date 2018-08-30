@@ -1,0 +1,44 @@
+{
+  "name": "nodejs-versions",
+  "version": "0.0.1",
+  "description": "Provides information about all NodeJs version and releases.",
+  "private": true,
+  "scripts": {
+    "test": "NODE_ENV=test mocha ./test/**/*.mocha.js",
+    "test-coverage": "nyc --reporter=html --reporter=text NODE_ENV=test mocha ./test/**/*.mocha.js",
+    "lint": "eslint ./test ./src"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "keywords": [
+    "nodejs api version",
+    "version",
+    "changelog"
+  ],
+  "homepage": "",
+  "directories": {
+    "test": "test"
+  },
+  "author": {
+    "name": "Vincent Vallet",
+    "email": "wallet77@gmail.com",
+    "url": "https://github.com/wallet77"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "bunyan": "1.8.12",
+    "compare-versions": "3.1.0",
+    "moment": "2.20.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.15.0",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "mocha": "^5.0.0",
+    "nyc": "^11.4.1"
+  }
+}
