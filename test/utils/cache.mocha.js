@@ -2,6 +2,7 @@
 
 const cache = require('../../src/utils/cache')
 const assert = require('assert')
+const path = require('path')
 
 describe('Utils : cache', () => {
   describe('hasExpired', () => {
@@ -14,7 +15,7 @@ describe('Utils : cache', () => {
       process.env.NODE_ENV = 'test'
     })
 
-    const filePath = '../../cache/allVersions.json'
+    const filePath = path.join(__dirname, '../../cache/allVersions.json')
 
     it('should check file has expired (default TTL)', () => {
       let res = cache.hasExpired(filePath)
@@ -39,6 +40,14 @@ describe('Utils : cache', () => {
 
       const result = await testPromise
       assert.equal(result, true)
+    })
+
+    it('should get file on line', async () => {
+      const url = `https://nodejs.org/dist/index.json`
+      cache.allFiles[filePath] = new Date('2018-01-01')
+      await cache.retrieveFile(url, filePath)
+      let res = cache.hasExpired(filePath)
+      assert.equal(res, false)
     })
   })
 

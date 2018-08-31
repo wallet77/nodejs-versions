@@ -42,6 +42,7 @@ class CacheSystem {
 
         res.on('end', () => {
           fs.writeFile(filePath, data, 'utf8', err => {
+            console.log(err)
             if (err) {
               return reject(err)
             }

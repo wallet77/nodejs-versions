@@ -6,7 +6,7 @@ const path = require('path')
 
 class VersionController {
   async getAllVersionsInfo () {
-    const filePath = process.env.NODE_ENV ? path.join(__dirname, '../test/', `${constants.samplesDir}data.json`) : path.join(__dirname, '../', `${constants.cacheDir}allVersions.json`)
+    const filePath = process.env.NODE_ENV === 'test' ? path.join(__dirname, '../test/', `${constants.samplesDir}data.json`) : path.join(__dirname, '../', `${constants.cacheDir}allVersions.json`)
     const url = `https://nodejs.org/dist/index.json`
 
     await cache.retrieveFile(url, filePath)
@@ -44,6 +44,9 @@ class VersionController {
   }
 
   async getVersionsSinceDate (dateParam) {
+    if (!dateParam) return console.warn('No date provided !')
+    if (!moment(new Date(dateParam)).isValid()) return console.warn('Bad format date !')
+
     const data = await this.getAllVersionsInfo()
     const date = moment(dateParam)
     const response = {
@@ -54,12 +57,13 @@ class VersionController {
 
     for (let i = 0; i < data.length; i++) {
       const current = data[i]
+
       const currentRelease = {
         version: current.version,
         date: current.date
       }
 
-      if (moment(current.date).isAfter(date)) {
+      if (moment(currentRelease.date).isAfter(date)) {
         response.release.push(currentRelease)
 
         if (current.lts) {
@@ -76,7 +80,7 @@ class VersionController {
 
   async getVersionsSinceVersion (versionParam) {
     const data = await this.getAllVersionsInfo()
-    const version = versionParam.replace('v', '')
+    const version = versionParam ? versionParam.replace('v', '') : process.version
     const response = {
       release: [],
       latest: null,
@@ -87,7 +91,7 @@ class VersionController {
       const current = data[i]
       const currentRelease = {
         version: current.version,
-        date: current.datecontroller
+        date: current.date
       }
 
       if (compareVersions(current.version, version) === 1) {

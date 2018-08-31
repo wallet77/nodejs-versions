@@ -1,6 +1,8 @@
 'use strict'
 
 const controller = require('../../src/version')
+const cache = require('../../src/utils/cache')
+const path = require('path')
 const assert = require('assert')
 
 function checkJson (res) {
@@ -35,6 +37,23 @@ describe('Controller : version', function () {
   describe('getVersionsSinceVersion', function () {
     it('should get all versions of nodejs since a date', async () => {
       let res = await controller.getVersionsSinceVersion('7.0.0')
+      checkJson(res)
+    })
+  })
+
+  describe('getAllVersions', function () {
+    beforeEach(() => {
+      process.env.NODE_ENV = ''
+    })
+
+    afterEach(() => {
+      const filePath = path.join(__dirname, '../../cache/allVersions.json')
+      cache.allFiles[filePath] = new Date('2018-01-01')
+      process.env.NODE_ENV = 'test'
+    })
+
+    it('should get all versions of nodejs (with real file)', async () => {
+      let res = await controller.getAllVersions()
       checkJson(res)
     })
   })

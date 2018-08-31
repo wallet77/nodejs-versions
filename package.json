@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "test": "NODE_ENV=test mocha ./test/**/*.mocha.js",
-    "test-coverage": "nyc --reporter=html --reporter=text NODE_ENV=test mocha ./test/**/*.mocha.js",
+    "test-coverage": "NODE_ENV=test nyc --reporter=html --reporter=text mocha ./test/**/*.mocha.js",
     "lint": "eslint ./test ./src"
   },
   "engines": {
