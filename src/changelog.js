@@ -8,7 +8,7 @@ class ChangelogController {
     const version = versionParam ? versionParam.replace('v', '') : process.version
     const versionParts = version.split('.')
 
-    const filePath = `${constants.cacheDir}${constants.changelogDir}CHANGELOG_V${versionParts[0]}.md`
+    const filePath = require('path').join(__dirname, '../', `${constants.cacheDir}${constants.changelogDir}CHANGELOG_V${versionParts[0]}.md`)
     const url = `https://raw.githubusercontent.com/nodejs/node/master/doc/changelogs/CHANGELOG_V${versionParts[0]}.md`
 
     await cache.retrieveFile(url, filePath)
