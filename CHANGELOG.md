@@ -1,4 +1,16 @@
  
+## 1.0.1 ( Sat Sep 01 2018 19:40:08 GMT+0200 (CEST) )
+
+
+## Bug Fixes
+  - change path building method of changelogs
+  ([2661b76e](https://github.com/wallet77/nodejs-versions/commit/2661b76ef57d1fec996926a07ec97050396a4ac8))
+
+
+
+
+
+ 
 ## 1.0.0 ( Sat Sep 01 2018 18:55:25 GMT+0200 (CEST) )
 
 
