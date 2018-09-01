@@ -1,6 +1,6 @@
 {
   "name": "nodejs-versions",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Provides information about all NodeJs version and releases.",
   "private": true,
   "scripts": {
@@ -9,12 +9,20 @@
     "lint": "eslint ./test ./src"
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=7.6.0"
   },
   "keywords": [
+    "node versions",
+    "nodejs versions",
     "nodejs api version",
     "version",
-    "changelog"
+    "changelog",
+    "release",
+    "latest",
+    "versions",
+    "latest",
+    "nodejs",
+    "lts"
   ],
   "homepage": "",
   "directories": {
