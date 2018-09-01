@@ -11,7 +11,12 @@ class VersionController {
 
     await cache.retrieveFile(url, filePath)
 
-    return require(filePath)
+    try {
+      return require(filePath)
+    } catch (e) {
+      console.error(e)
+      return null
+    }
   }
 
   async getAllVersions () {
@@ -22,6 +27,8 @@ class VersionController {
       latest: null,
       lts: []
     }
+
+    if (!data) return response
 
     for (let i = 0; i < data.length; i++) {
       const current = data[i]
@@ -48,6 +55,9 @@ class VersionController {
     if (!moment(new Date(dateParam)).isValid()) return console.warn('Bad format date !')
 
     const data = await this.getAllVersionsInfo()
+
+    if (!data) return {}
+
     const date = moment(dateParam)
     const response = {
       release: [],
@@ -80,6 +90,9 @@ class VersionController {
 
   async getVersionsSinceVersion (versionParam) {
     const data = await this.getAllVersionsInfo()
+
+    if (!data) return {}
+
     const version = versionParam ? versionParam.replace('v', '') : process.version
     const response = {
       release: [],
