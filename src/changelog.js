@@ -5,7 +5,7 @@ const cache = require('./utils/cache')
 
 class ChangelogController {
   async getVersionChangelog (versionParam) {
-    const version = versionParam.replace('v', '')
+    const version = versionParam ? versionParam.replace('v', '') : process.version
     const versionParts = version.split('.')
 
     const filePath = `${constants.cacheDir}${constants.changelogDir}CHANGELOG_V${versionParts[0]}.md`

@@ -38,4 +38,13 @@ describe('E2E : version', function () {
       assert.deepEqual(res, undefined)
     })
   })
+
+  describe('With promises', function () {
+    it('should get latest version', (done) => {
+      index.versions.getLatestLTS().then((latest) => {
+        assert.equal(latest, 'v8.9.4')
+        done()
+      })
+    })
+  })
 })
