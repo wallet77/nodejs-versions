@@ -2,7 +2,7 @@
   "name": "nodejs-versions",
   "version": "1.0.0",
   "description": "Provides information about all NodeJs version and releases.",
-  "private": true,
+  "private": false,
   "scripts": {
     "test": "NODE_ENV=test mocha ./test/**/*.mocha.js",
     "test-coverage": "NODE_ENV=test nyc --reporter=html --reporter=text mocha ./test/**/*.mocha.js",
