@@ -18,13 +18,14 @@ describe('E2E : version', function () {
 
   describe('getVersionsSinceVersion', function () {
     it('should get all versions since current one', async () => {
-      let res = await index.versions.getVersionsSinceVersion()
+      let res = await index.versions.getVersionsSinceVersion('v9.2.0')
       assert.equal(res.release[0].version, 'v9.3.0')
       assert.equal(res.release[0].date, '2017-12-12')
 
-      let res2 = await index.versions.getVersionsSinceVersion(process.version)
+      let res2 = await index.versions.getVersionsSinceVersion()
 
-      assert.deepEqual(res, res2)
+      assert.deepEqual(res2.latest, undefined)
+      assert.deepEqual(res2.release.length, 0)
     })
   })
 
