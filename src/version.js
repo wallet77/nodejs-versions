@@ -7,7 +7,7 @@ const path = require('path')
 class VersionController {
   async getAllVersionsInfo () {
     const filePath = process.env.NODE_ENV === 'test' ? path.join(__dirname, '../test/', `${constants.samplesDir}data.json`) : path.join(__dirname, '../', `${constants.cacheDir}allVersions.json`)
-    const url = `https://nodejs.org/dist/index.json`
+    const url = 'https://nodejs.org/dist/index.json'
 
     await cache.retrieveFile(url, filePath)
 

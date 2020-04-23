@@ -6,7 +6,6 @@ const path = require('path')
 
 describe('Utils : cache', () => {
   describe('hasExpired', () => {
-
     beforeEach(() => {
       process.env.NODE_ENV = ''
     })
@@ -43,10 +42,10 @@ describe('Utils : cache', () => {
     })
 
     it('should get file on line', async () => {
-      const url = `https://nodejs.org/dist/index.json`
+      const url = 'https://nodejs.org/dist/index.json'
       cache.allFiles[filePath] = new Date('2018-01-01')
       await cache.retrieveFile(url, filePath)
-      let res = cache.hasExpired(filePath)
+      const res = cache.hasExpired(filePath)
       assert.equal(res, false)
     })
   })

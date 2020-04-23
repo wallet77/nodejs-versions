@@ -19,7 +19,7 @@ class CacheSystem {
     if (process.env.NODE_ENV === 'test') return false
 
     TTL = TTL || constants.TTL
-    if (!this.allFiles.hasOwnProperty(filePath)) {
+    if (!Object.prototype.hasOwnProperty.call(this.allFiles, filePath)) {
       return true
     }
 
