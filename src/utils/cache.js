@@ -32,7 +32,7 @@ class CacheSystem {
 
   async requestFileOnline (url, filePath) {
     return new Promise((resolve, reject) => {
-      https.get(url, res => {
+      const req = https.get(url, res => {
         let data = ''
 
         // Concat chunk of data
@@ -50,6 +50,14 @@ class CacheSystem {
             resolve()
           })
         })
+
+        res.on('error', err => {
+          reject(err)
+        })
+      })
+
+      req.setTimeout(parseInt(process.env.REQ_TIMEOUT) || constants.timeout, () => {
+        reject(new Error(`Request timeout for file ${url}`))
       })
     })
   }

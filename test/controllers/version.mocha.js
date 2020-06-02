@@ -50,11 +50,20 @@ describe('Controller : version', function () {
       const filePath = path.join(__dirname, '../../cache/allVersions.json')
       cache.allFiles[filePath] = new Date('2018-01-01')
       process.env.NODE_ENV = 'test'
+      delete process.env.REQ_TIMEOUT
     })
 
     it('should get all versions of nodejs (with real file)', async () => {
       const res = await controller.getAllVersions()
       checkJson(res)
+    })
+
+    it('should try to get all versions but failed cause timeout', async () => {
+      process.env.REQ_TIMEOUT = 10
+      const res = await controller.getAllVersions()
+      assert.equal(res.release.length, 0)
+      assert.equal(res.lts.length, 0)
+      assert.equal(res.latest, null)
     })
   })
 })
