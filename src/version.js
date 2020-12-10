@@ -23,7 +23,7 @@ class VersionController {
         date: current.date
       }
 
-      if ((version && compareVersions(current.version, version) === 1) || (data && moment(currentRelease.date).isAfter(date))) {
+      if ((version && compareVersions(current.version, version) === 1) || (date && moment(currentRelease.date).isAfter(date))) {
         response.release.push(currentRelease)
 
         if (current.lts) {
