@@ -5,6 +5,39 @@ const constants = require('./constants')
 const path = require('path')
 
 class VersionController {
+  async formatData (version, date) {
+    const data = await this.getAllVersionsInfo()
+
+    if (!data) return {}
+
+    const response = {
+      release: [],
+      latest: null,
+      lts: []
+    }
+
+    for (let i = 0; i < data.length; i++) {
+      const current = data[i]
+      const currentRelease = {
+        version: current.version,
+        date: current.date
+      }
+
+      if ((version && compareVersions(current.version, version) === 1) || (data && moment(currentRelease.date).isAfter(date))) {
+        response.release.push(currentRelease)
+
+        if (current.lts) {
+          response.lts.push(currentRelease)
+        }
+      }
+    }
+
+    response.latest = response.release[0]
+    response.latestLTS = response.lts[0]
+
+    return response
+  }
+
   async getAllVersionsInfo () {
     const filePath = process.env.NODE_ENV === 'test' ? path.join(__dirname, '../test/', `${constants.samplesDir}data.json`) : path.join(__dirname, '../', `${constants.cacheDir}allVersions.json`)
     const url = constants.urlReleases
@@ -53,72 +86,13 @@ class VersionController {
     if (!dateParam) return console.warn('No date provided !')
     if (!moment(new Date(dateParam)).isValid()) return console.warn('Bad format date !')
 
-    const data = await this.getAllVersionsInfo()
-
-    if (!data) return {}
-
     const date = moment(dateParam)
-    const response = {
-      release: [],
-      latest: null,
-      lts: []
-    }
-
-    for (let i = 0; i < data.length; i++) {
-      const current = data[i]
-
-      const currentRelease = {
-        version: current.version,
-        date: current.date
-      }
-
-      if (moment(currentRelease.date).isAfter(date)) {
-        response.release.push(currentRelease)
-
-        if (current.lts) {
-          response.lts.push(currentRelease)
-        }
-      }
-    }
-
-    response.latest = response.release[0]
-    response.latestLTS = response.lts[0]
-
-    return response
+    return this.formatData(null, date)
   }
 
   async getVersionsSinceVersion (versionParam) {
-    const data = await this.getAllVersionsInfo()
-
-    if (!data) return {}
-
     const version = versionParam ? versionParam.replace('v', '') : process.version
-    const response = {
-      release: [],
-      latest: null,
-      lts: []
-    }
-
-    for (let i = 0; i < data.length; i++) {
-      const current = data[i]
-      const currentRelease = {
-        version: current.version,
-        date: current.date
-      }
-
-      if (compareVersions(current.version, version) === 1) {
-        response.release.push(currentRelease)
-
-        if (current.lts) {
-          response.lts.push(currentRelease)
-        }
-      }
-    }
-
-    response.latest = response.release[0]
-    response.latestLTS = response.lts[0]
-
-    return response
+    return this.formatData(version)
   }
 
   async getLatest () {

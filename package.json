@@ -1,12 +1,22 @@
 {
   "name": "nodejs-versions",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Provides information about all NodeJs version and releases.",
   "private": false,
+  "main": "index.js",
+  "bin": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    "require": "./index.js",
+    "import": "./index.js"
+  },
+  "files": [
+    "src/**"
+  ],
   "scripts": {
     "test": "NODE_ENV=test mocha ./test/**/*.mocha.js",
-    "test-coverage": "NODE_ENV=test nyc --reporter=html --reporter=text mocha ./test/**/*.mocha.js",
-    "lint": "eslint ./test ./src"
+    "coverage": "NODE_ENV=test nyc --reporter=html --reporter=text mocha ./test/**/*.mocha.js",
+    "linter": "eslint ./test ./src"
   },
   "engines": {
     "node": ">=7.6.0"
@@ -22,11 +32,17 @@
     "versions",
     "latest",
     "nodejs",
-    "lts"
+    "lts",
+    "breaking",
+    "change"
   ],
   "homepage": "",
   "directories": {
     "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wallet77/nodejs-versions.git"
   },
   "author": {
     "name": "Vincent Vallet",
@@ -36,16 +52,16 @@
   "license": "MIT",
   "dependencies": {
     "compare-versions": "3.6.0",
-    "moment": "2.26.0"
+    "moment": "2.29.1"
   },
   "devDependencies": {
-    "eslint": "^7.1.0",
-    "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": "^2.20.2",
+    "eslint": "^7.15.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
-    "mocha": "^7.2.0",
+    "eslint-plugin-standard": "^5.0.0",
+    "mocha": "^8.2.1",
     "nyc": "^15.1.0"
   }
 }
