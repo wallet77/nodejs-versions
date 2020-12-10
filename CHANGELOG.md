@@ -1,4 +1,13 @@
- 
+## 1.0.5 ( Thu Dec 10 2020 15:08:08 GMT+0200 (CEST) )
+
+## Chore
+  - upgrade to 1.0.5
+  ([2cf3dc04](https://github.com/wallet77/nodejs-versions/commit/2cf3dc04769320f61fe18277c3341b7f61b8fcc2))
+  - Add github actions
+  ([0717cd94](https://github.com/wallet77/nodejs-versions/commit/0717cd947030f39606a914bd2473912fef70350d))
+  - Remove duplicate + fix tests
+  ([54f0fd81](https://github.com/wallet77/nodejs-versions/commit/54f0fd81577b9254b47bfd9f752a4f796cb20598))
+
 ## 1.0.1 ( Sat Sep 01 2018 19:40:08 GMT+0200 (CEST) )
 
 
