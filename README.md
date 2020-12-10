@@ -1,12 +1,17 @@
 <div align="center">
 <b>NodeJs versions</b><br/>
 <br/><br/>
-
-<a href="https://badge.fury.io/js/nodejs-versions">
-   <img src="https://badge.fury.io/js/nodejs-versions.svg" alt="npm version" height="18">
-</a>
 </div>
 
+[![GitHub release](https://badge.fury.io/js/nodejs-versions.svg)](https://github.com/wallet77/nodejs-versions/releases/)
+[![GitHub license](https://img.shields.io/github/license/wallet77/nodejs-versions)](https://github.com/wallet77/nodejs-versions/blob/master/LICENSE)
+[![CI pipeline](https://github.com/wallet77/nodejs-versions/workflows/Node.js%20CI/badge.svg)](https://github.com/wallet77/nodejs-versions/actions?query=workflow%3A%22Node.js+CI%22)
+[![Code coverage](https://codecov.io/gh/wallet77/nodejs-versions/branch/master/graph/badge.svg)](https://codecov.io/gh/wallet77/nodejs-versions)
+[![Opened issues](https://img.shields.io/github/issues-raw/wallet77/nodejs-versions)](https://github.com/wallet77/nodejs-versions/issues)
+[![Opened PR](https://img.shields.io/github/issues-pr-raw/wallet77/nodejs-versions)](https://github.com/wallet77/nodejs-versions/pulls)
+[![DeepScan grade](https://deepscan.io/api/teams/12061/projects/15019/branches/292504/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=12061&pid=15019&bid=292504)
+
+![DeepScan grade](https://img.shields.io/david/wallet77/nodejs-versions)
 
 # Purpose
 
@@ -26,11 +31,6 @@ Supported and tested : >= 8.x
 | 9.x           | yes           | yes            |
 | 8.x           | yes           | yes            |
 | >= 7.6        | yes           | yes            |
-| < 7.6         | no            | yes            |
-| 6.x           | no            | no             |
-| 4.x           | no            | no             |
-| 0.12.x        | no            | no             |
-| > 0.12.x      | no            | no             |
 
 **/!\ This module use async/await, this is why you must have node 7.6+.**
 
