@@ -1,3 +1,14 @@
+## 1.0.6 ( Thu Jan 12 2021 17:08:08 GMT+0200 (CEST) )
+
+## Documentation
+- update readme
+  ([adebc89](https://github.com/wallet77/nodejs-versions/commit/adebc893e1d6d128bfa7b4f014932de92a53a378))
+
+## Chore
+  - Add cache folder in package
+  ([a9ea5b35](https://github.com/wallet77/nodejs-versions/commit/a9ea5b35f998c519ec7937c371b141832095a4df))
+
+
 ## 1.0.5 ( Thu Dec 10 2020 15:08:08 GMT+0200 (CEST) )
 
 ## Chore
