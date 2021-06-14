@@ -1,3 +1,13 @@
+## 1.0.7 ( Mon Jun 14 2021 17:08:08 GMT+0200 (CEST) )
+
+## Drop support of Node 10
+- update readme
+  ([139fdb12](https://github.com/wallet77/nodejs-versions/commit/139fdb12a0ca904a0c17a666dd76747c04d1c6ad))
+
+## Chore
+  - Upgrade dependencies
+  ([6bcec801](https://github.com/wallet77/nodejs-versions/commit/6bcec8014455f94dacdcaf3c89dd26e1d08e3405))
+
 ## 1.0.6 ( Thu Jan 12 2021 17:08:08 GMT+0200 (CEST) )
 
 ## Documentation
