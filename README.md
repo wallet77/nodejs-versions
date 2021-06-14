@@ -26,17 +26,10 @@ Only 2 dependencies.
 
 # Compatibility
 
-Supported and tested : >= 8.x
-
 | Version       | Supported     | Tested         |
 | ------------- |:-------------:|:--------------:|
 | 14.x          | yes           | yes            |
 | 12.x          | yes           | yes            |
-| 10.x          | yes           | yes            |
-| 8.x           | yes           | yes            |
-| >= 7.6        | yes           | yes            |
-
-**/!\ This module use async/await, this is why you must have node 7.6+.**
 
 # Installation
 

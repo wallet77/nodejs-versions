@@ -20,7 +20,7 @@
     "linter": "eslint ./test ./src"
   },
   "engines": {
-    "node": ">=7.6.0"
+    "node": ">=12.0.0"
   },
   "keywords": [
     "node versions",
