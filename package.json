@@ -1,6 +1,6 @@
 {
   "name": "nodejs-versions",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Provides information about all NodeJs version and releases.",
   "private": false,
   "main": "index.js",
