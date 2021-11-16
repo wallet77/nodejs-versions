@@ -10,8 +10,6 @@
 [![Opened issues](https://img.shields.io/github/issues-raw/wallet77/nodejs-versions)](https://github.com/wallet77/nodejs-versions/issues)
 [![Opened PR](https://img.shields.io/github/issues-pr-raw/wallet77/nodejs-versions)](https://github.com/wallet77/nodejs-versions/pulls)
 [![DeepScan grade](https://deepscan.io/api/teams/12061/projects/15019/branches/292504/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=12061&pid=15019&bid=292504)
-[![Dependencies updates](https://img.shields.io/david/wallet77/nodejs-versions.svg)](https://github.com/wallet77/nodejs-versions)
-[![Dependencies updates](https://img.shields.io/david/dev/wallet77/nodejs-versions.svg)](https://github.com/wallet77/nodejs-versions)
 [![Node version](https://img.shields.io/node/v-lts/nodejs-versions.svg)](https://github.com/wallet77/nodejs-versions)
 
 
@@ -28,6 +26,7 @@ Only 2 dependencies.
 
 | Version       | Supported     | Tested         |
 | ------------- |:-------------:|:--------------:|
+| 16.x          | yes           | yes            |
 | 14.x          | yes           | yes            |
 | 12.x          | yes           | yes            |
 
