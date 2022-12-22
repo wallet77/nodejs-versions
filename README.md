@@ -26,9 +26,9 @@ Only 2 dependencies.
 
 | Version       | Supported     | Tested         |
 | ------------- |:-------------:|:--------------:|
+| 18.x          | yes           | yes            |
 | 16.x          | yes           | yes            |
 | 14.x          | yes           | yes            |
-| 12.x          | yes           | yes            |
 
 # Installation
 
