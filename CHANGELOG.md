@@ -1,3 +1,10 @@
+## 2.0.0 ( Tue Apr 25 2023 11:53:08 GMT+0100 (CEST) )
+
+## Breaking change
+- store data in memory by default
+  ([73d4607f](https://github.com/wallet77/nodejs-versions/commit/73d4607fa39e222dd1d22afe58644cc2db1e601d))
+
+
 ## 1.0.7 ( Mon Jun 14 2021 17:08:08 GMT+0200 (CEST) )
 
 ## Drop support of Node 10

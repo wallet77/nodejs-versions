@@ -22,6 +22,11 @@ If you don't provide a version it will take into account process.version as curr
 
 Only 2 dependencies.
 
+By default it stores data in memory, you can override this behavior and save data on the disk with the env var:
+```console
+$ NODEJS_VERSION_CACHE=file node index.js
+```
+
 # Compatibility
 
 | Version       | Supported     | Tested         |
