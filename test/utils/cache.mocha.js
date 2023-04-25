@@ -45,7 +45,7 @@ describe('Utils : cache', () => {
     it('should get file on line', async () => {
       const url = 'https://nodejs.org/dist/index.json'
       cache.allFiles[filePath] = new Date('2018-01-01')
-      await cache.retrieveFile(url, filePath)
+      await cache.retrieveData(url, filePath)
       const res = cache.hasExpired(filePath)
       assert.strictEqual(res, false)
     })

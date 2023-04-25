@@ -11,7 +11,7 @@ class ChangelogController {
     const filePath = require('path').join(__dirname, '../', `${constants.cacheDir}${constants.changelogDir}CHANGELOG_V${versionParts[0]}.md`)
     const url = `https://raw.githubusercontent.com/nodejs/node/master/doc/changelogs/CHANGELOG_V${versionParts[0]}.md`
 
-    await cache.retrieveFile(url, filePath)
+    await cache.retrieveData(url, filePath)
 
     return this.extractVersion(version, filePath)
   }

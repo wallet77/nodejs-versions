@@ -43,8 +43,8 @@ class VersionController {
     const url = constants.urlReleases
 
     try {
-      await cache.retrieveFile(url, filePath)
-      return require(filePath)
+      await cache.retrieveData(url, filePath)
+      return process.env.NODEJS_VERSION_CACHE === 'file' ? require(filePath) : cache.inMemory[filePath]
     } catch (e) {
       console.error(e)
       return null

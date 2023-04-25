@@ -15,8 +15,8 @@
     "cache/**"
   ],
   "scripts": {
-    "test": "NODE_ENV=test mocha ./test/**/*.mocha.js",
-    "coverage": "NODE_ENV=test nyc --reporter=html --reporter=lcovonly --reporter=text mocha ./test/**/*.mocha.js",
+    "test": "NODE_ENV=test NODEJS_VERSION_CACHE=file mocha ./test/**/*.mocha.js",
+    "coverage": "NODE_ENV=test NODEJS_VERSION_CACHE=file nyc --reporter=html --reporter=lcovonly --reporter=text mocha ./test/**/*.mocha.js",
     "linter": "eslint ./test ./src"
   },
   "engines": {

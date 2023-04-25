@@ -1,5 +1,6 @@
 const index = require('../../index')
 const assert = require('assert')
+const cache = require('../../src/utils/cache')
 
 describe('E2E : version', function () {
   describe('getLatest', function () {
@@ -46,6 +47,32 @@ describe('E2E : version', function () {
         assert.equal(latest, 'v8.9.4')
         done()
       })
+    })
+  })
+})
+
+describe('E2E in memory : version', function () {
+  before(() => {
+    process.env.NODEJS_VERSION_CACHE = ''
+    cache.inMemory = {}
+  })
+
+  after(() => {
+    process.env.NODEJS_VERSION_CACHE = 'file'
+    cache.inMemory = {}
+  })
+
+  describe('getLatest', function () {
+    it('should get latest version', async () => {
+      const res = await index.versions.getLatest()
+      assert.equal(res, 'v9.3.0')
+    })
+  })
+
+  describe('getLatestLTS', function () {
+    it('should get latest LTS', async () => {
+      const res = await index.versions.getLatestLTS()
+      assert.equal(res, 'v8.9.4')
     })
   })
 })

@@ -6,10 +6,11 @@ const constants = require('../constants')
 class CacheSystem {
   constructor () {
     this.allFiles = {}
+    this.inMemory = {}
   }
 
-  async retrieveFile (url, filePath) {
-    const fileExists = await this.fileExists(filePath)
+  async retrieveData (url, filePath) {
+    const fileExists = process.env.NODEJS_VERSION_CACHE === 'file' ? await this.fileExists(filePath) : Object.prototype.hasOwnProperty.call(this.inMemory, filePath)
     if (!fileExists || this.hasExpired(filePath)) {
       await this.requestFileOnline(url, filePath)
     }
@@ -41,14 +42,20 @@ class CacheSystem {
         })
 
         res.on('end', () => {
-          fs.writeFile(filePath, data, 'utf8', err => {
-            if (err) {
-              return reject(err)
-            }
+          if (process.env.NODEJS_VERSION_CACHE === 'file') {
+            fs.writeFile(filePath, data, 'utf8', err => {
+              if (err) {
+                return reject(err)
+              }
 
+              this.allFiles[filePath] = new Date()
+              resolve()
+            })
+          } else {
+            this.inMemory[filePath] = process.env.NODE_ENV === 'test' ? require(filePath) : JSON.parse(data)
             this.allFiles[filePath] = new Date()
             resolve()
-          })
+          }
         })
 
         res.on('error', err => {
