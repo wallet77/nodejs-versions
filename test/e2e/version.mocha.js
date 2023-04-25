@@ -63,14 +63,14 @@ describe('E2E in memory : version', function () {
   })
 
   describe('getLatest', function () {
-    it('should get latest version', async () => {
+    it('should get latest version from memory', async () => {
       const res = await index.versions.getLatest()
       assert.equal(res, 'v9.3.0')
     })
   })
 
   describe('getLatestLTS', function () {
-    it('should get latest LTS', async () => {
+    it('should get latest LTS from memory', async () => {
       const res = await index.versions.getLatestLTS()
       assert.equal(res, 'v8.9.4')
     })
